@@ -39,7 +39,7 @@ export function HomeView() {
         <ol className="work-entry" aria-label="Selected projects">
           {projects.map((project) => (
             <li key={project.slug}>
-              <Link className="work-entry__link" href={`/work/${project.slug}`}>
+              <Link className="work-entry__link" data-cursor="project" href={`/work/${project.slug}`}>
                 <span className="work-entry__number" aria-hidden="true">
                   {String(projects.indexOf(project) + 1).padStart(2, "0")}
                 </span>

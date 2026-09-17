@@ -121,6 +121,60 @@
   pointer-events: none !important;
 }
 
+.custom-cursor {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 0.65rem;
+  height: 0.65rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0);
+  transition: opacity var(--motion-fast) var(--ease-out);
+}
+
+.custom-cursor[data-visible="true"] {
+  opacity: 1;
+}
+
+.custom-cursor__dot {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-text);
+  border-radius: 50%;
+  background: var(--color-text);
+  transform: scale(0.65);
+  transition: background-color var(--motion-fast) var(--ease-out), border-color var(--motion-fast) var(--ease-out), transform var(--motion-fast) var(--ease-out);
+}
+
+.custom-cursor[data-state="link"] .custom-cursor__dot,
+.custom-cursor[data-state="project"] .custom-cursor__dot,
+.custom-cursor[data-state="external"] .custom-cursor__dot {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  transform: scale(1);
+}
+
+.custom-cursor__label {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  color: var(--color-accent);
+  font: 0.58rem var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  text-transform: uppercase;
+  transform: translateY(-0.2rem);
+  transition: opacity var(--motion-fast) var(--ease-out), transform var(--motion-fast) var(--ease-out);
+}
+
+.custom-cursor[data-state="project"] .custom-cursor__label,
+.custom-cursor[data-state="external"] .custom-cursor__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .portfolio-nav {
   position: fixed;
   z-index: var(--z-navigation);
@@ -823,6 +877,21 @@
   .about-page__grid { margin-bottom: 4rem; }
   .contact-page { display: block; }
   .contact-page h1 { font-size: clamp(4.5rem, 22vw, 8rem); }
+}
+
+@media (pointer: fine) {
+  html[data-custom-cursor="true"],
+  html[data-custom-cursor="true"] body {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor,
+  .custom-cursor__dot,
+  .custom-cursor__label {
+    transition-duration: 0.01ms;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

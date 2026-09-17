@@ -59,6 +59,7 @@ export function ProjectDetail({ project, previous, next }: { project: Project; p
             {projectLinks.map(({ href, label }) => (
               <a
                 key={label}
+                data-cursor="external"
                 href={href}
                 target="_blank"
                 rel="noreferrer"
