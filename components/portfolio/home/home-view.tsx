@@ -14,14 +14,21 @@ export function HomeView() {
       <Reveal className="home-view__statement" delay={0.04}>
         <p className="home-view__index">01 / SYSTEMS, INTERFACES, DELIVERY</p>
         <h1>
-          I build software systems that turn complex requirements into working
-          solutions.
+          I turn complex requirements into working software.
         </h1>
         <p className="home-view__summary">
-          Backend engineering, AI and RAG systems, API integration, and
-          technical implementation for products that need to work in the real
-          world.
+          Backend engineering, AI/RAG, API integration, and technical
+          implementation.
         </p>
+        <Reveal className="home-view__positioning" delay={0.2}>
+          <p>Technical focus</p>
+          <ul>
+            <li>Backend systems</li>
+            <li>AI / RAG</li>
+            <li>APIs &amp; integrations</li>
+            <li>Implementation</li>
+          </ul>
+        </Reveal>
       </Reveal>
 
       <Reveal className="home-view__work" delay={0.12}>
@@ -48,17 +55,7 @@ export function HomeView() {
         </Link>
       </Reveal>
 
-      <Reveal className="home-view__positioning" delay={0.2}>
-        <p>Technical focus</p>
-        <ul>
-          <li>Backend systems</li>
-          <li>AI / RAG</li>
-          <li>APIs &amp; integrations</li>
-          <li>Implementation</li>
-        </ul>
-      </Reveal>
-
-      <Reveal className="home-view__footer" delay={0.26}>
+      <Reveal className="home-view__footer" delay={0.2}>
         <span>Based in Nigeria</span>
         <Link className="text-link" href="/contact">
           Start a conversation <span aria-hidden="true">↗</span>

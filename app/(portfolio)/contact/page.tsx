@@ -1,5 +1,5 @@
-import { RoutePlaceholder } from "@/components/portfolio/route-placeholder";
+import { ContactView } from "@/components/portfolio/contact/contact-view";
 
 export default function ContactPage() {
-  return <RoutePlaceholder index="06 / CONTACT" title="Contact" />;
+  return <ContactView />;
 }

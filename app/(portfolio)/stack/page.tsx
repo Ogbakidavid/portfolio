@@ -1,5 +1,5 @@
-import { RoutePlaceholder } from "@/components/portfolio/route-placeholder";
+import { StackIndex } from "@/components/portfolio/stack/stack-index";
 
 export default function StackPage() {
-  return <RoutePlaceholder index="04 / STACK" title="Stack" />;
+  return <StackIndex />;
 }

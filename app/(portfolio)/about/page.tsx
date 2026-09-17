@@ -1,5 +1,5 @@
-import { RoutePlaceholder } from "@/components/portfolio/route-placeholder";
+import { AboutView } from "@/components/portfolio/about/about-view";
 
 export default function AboutPage() {
-  return <RoutePlaceholder index="05 / ABOUT" title="About" />;
+  return <AboutView />;
 }
