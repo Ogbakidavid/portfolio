@@ -38,16 +38,52 @@ function applyConfig(container: Container, config: EnvironmentConfig) {
     particles: {
       number: { value: config.density },
       move: { speed: config.movement },
-      links: { distance: config.connectionDistance, opacity: config.connectionOpacity },
+      links: {
+        distance: config.connectionDistance,
+        opacity: config.connectionOpacity,
+        frequency: 0.25 + config.clustering,
+      },
     },
     interactivity: { modes: { repulse: { distance: config.pointerRadius } } },
   });
-  container.refresh();
+
+  const difference = config.density - container.particles.count;
+  if (difference > 0) container.particles.push(difference);
+  if (difference < 0) container.particles.removeQuantity(Math.abs(difference));
+}
+
+function interpolateConfig(container: Container, from: EnvironmentConfig, to: EnvironmentConfig, reducedMotion: boolean) {
+  if (reducedMotion) {
+    applyConfig(container, to);
+    return () => undefined;
+  }
+
+  let frame = 0;
+  const startedAt = performance.now();
+  const duration = 280;
+  const tick = (now: number) => {
+    const progress = Math.min((now - startedAt) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = (key: keyof EnvironmentConfig) => from[key] + (to[key] - from[key]) * eased;
+    applyConfig(container, {
+      density: Math.round(current("density")),
+      movement: current("movement"),
+      connectionDistance: current("connectionDistance"),
+      connectionOpacity: current("connectionOpacity"),
+      pointerRadius: current("pointerRadius"),
+      clustering: current("clustering"),
+    });
+    if (progress < 1) frame = requestAnimationFrame(tick);
+  };
+  frame = requestAnimationFrame(tick);
+  return () => cancelAnimationFrame(frame);
 }
 
 function EnvironmentCanvas() {
   const pathname = usePathname();
   const containerRef = useRef<Container | undefined>(undefined);
+  const activeConfigRef = useRef<EnvironmentConfig | undefined>(undefined);
+  const transitionRef = useRef<(() => void) | undefined>(undefined);
   const reducedMotion = useReducedMotion();
   const { config } = useMemo(() => resolveEnvironment(pathname), [pathname]);
   const init = useCallback((engine: Parameters<typeof loadSlim>[0]) => loadSlim(engine), []);
@@ -70,13 +106,23 @@ function EnvironmentCanvas() {
   const handleParticlesLoaded = useCallback((container?: Container) => {
     if (container) {
       containerRef.current = container;
-      applyConfig(container, resolveEnvironment(window.location.pathname).config);
+      const config = resolveEnvironment(window.location.pathname).config;
+      applyConfig(container, config);
+      activeConfigRef.current = config;
     }
   }, []);
 
   useEffect(() => {
-    if (containerRef.current) applyConfig(containerRef.current, config);
-  }, [config]);
+    const container = containerRef.current;
+    if (!container) return;
+
+    transitionRef.current?.();
+    const previous = activeConfigRef.current ?? config;
+    transitionRef.current = interpolateConfig(container, previous, config, reducedMotion === true);
+    activeConfigRef.current = config;
+
+    return () => transitionRef.current?.();
+  }, [config, reducedMotion]);
 
   return (
     <ParticlesProvider init={init}>
