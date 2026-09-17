@@ -5,7 +5,7 @@ const projects = [
   { slug: "billam", title: "BillAm", category: "AI systems / operations" },
   { slug: "dayle", title: "Dayle", category: "Settlement / infrastructure" },
   { slug: "aethersearch", title: "AetherSearch", category: "Retrieval / RAG" },
-  { slug: "plp-alumni", title: "Power Hub", category: "Peer learning" },
+  { slug: "powerhub", title: "Power Hub", category: "Peer learning" },
 ];
 
 export function HomeView() {

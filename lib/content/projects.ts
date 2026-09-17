@@ -18,7 +18,10 @@ export type Project = {
   contribution?: string;
   status?: string;
   notes?: string;
-  githubUrl?: string;
+  github?: {
+    frontend?: string;
+    backend?: string;
+  };
   liveUrl?: string;
 };
 
@@ -43,6 +46,10 @@ export const projects: Project[] = [
     ],
     visualMode: "orchestration",
     visualLanguage: ["brief", "state", "review"],
+    github: {
+      frontend: "https://github.com/Ogbakidavid/billam-dashboard.git",
+      backend: "https://github.com/Ogbakidavid/BillAm-agent.git",
+    },
   },
   {
     slug: "dayle",
@@ -68,6 +75,9 @@ export const projects: Project[] = [
     status: "Not commercially launched",
     notes:
       "The startup did not reach commercial launch due to business-model constraints; technical ownership of the backend was retained.",
+    github: {
+      backend: "https://github.com/Ogbakidavid/dayle-backend.git",
+    },
   },
   {
     slug: "aethersearch",
@@ -91,9 +101,13 @@ export const projects: Project[] = [
     ],
     visualMode: "retrieval",
     visualLanguage: ["documents", "semantic links", "context"],
+    github: {
+      frontend: "https://github.com/Ogbakidavid/ai-semantic-search-frontend.git",
+      backend: "https://github.com/Ogbakidavid/ai-semantic-search-engine.git",
+    },
   },
   {
-    slug: "plp-alumni",
+    slug: "powerhub",
     number: "04",
     title: "Power Hub",
     category: "Peer learning",

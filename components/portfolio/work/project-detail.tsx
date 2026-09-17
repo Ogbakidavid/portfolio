@@ -23,15 +23,22 @@ function ProjectNavigation({ previous, next }: { previous?: Project; next?: Proj
 
 export function ProjectDetail({ project, previous, next }: { project: Project; previous?: Project; next?: Project }) {
   const projectLinks = [
-    project.githubUrl && {
-      href: project.githubUrl,
-      label: "GitHub",
+    project.github?.frontend && {
+      href: project.github.frontend,
+      label: "Frontend",
+      group: "GitHub",
+    },
+    project.github?.backend && {
+      href: project.github.backend,
+      label: "Backend",
+      group: "GitHub",
     },
     project.liveUrl && {
       href: project.liveUrl,
       label: "Live site",
+      group: "Project",
     },
-  ].filter(Boolean) as { href: string; label: string }[];
+  ].filter(Boolean) as { href: string; label: string; group: string }[];
 
   return (
     <article className="project-detail" aria-labelledby="project-detail-title">
@@ -56,16 +63,16 @@ export function ProjectDetail({ project, previous, next }: { project: Project; p
         <nav className="project-links" aria-label={`${project.title} links`}>
           <span className="project-links__label">Project links</span>
           <div className="project-links__items">
-            {projectLinks.map(({ href, label }) => (
+            {projectLinks.map(({ href, label, group }) => (
               <a
-                key={label}
+                key={`${group}-${label}`}
                 data-cursor="external"
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`${label} for ${project.title} (opens in a new tab)`}
+                aria-label={`${group} ${label} for ${project.title} (opens in a new tab)`}
               >
-                {label} <span aria-hidden="true">↗</span>
+                {group === "GitHub" && <span className="project-links__group">GitHub</span>}{label} <span aria-hidden="true">↗</span>
               </a>
             ))}
           </div>

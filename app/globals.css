@@ -45,11 +45,11 @@
 }
 
 :root {
-  --color-background: #0a0a14;
+  --color-background: #050505;
   --color-surface: #1c1c2e;
   --color-text: #ffffff;
   --color-muted: #a1a1aa;
-  --color-accent: #a8ff00;
+  --color-accent: #00E5FF;
   --color-accent-secondary: #00ffef;
   --color-border: rgb(255 255 255 / 0.18);
   --space-unit: 0.25rem;
@@ -578,6 +578,15 @@
   text-decoration-color: var(--color-accent);
   text-underline-offset: 0.3rem;
   transition: color var(--motion-fast) var(--ease-out);
+}
+
+.project-links__group {
+  margin-right: 0.45rem;
+  color: var(--color-muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .project-links__items a:hover {

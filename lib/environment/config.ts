@@ -13,7 +13,7 @@ export type ProjectEnvironment =
   | "billam"
   | "dayle"
   | "aethersearch"
-  | "plp-alumni";
+  | "powerhub";
 
 export type EnvironmentConfig = {
   density: number;
@@ -38,7 +38,7 @@ const projectConfigurations: Record<ProjectEnvironment, EnvironmentConfig> = {
   billam: { ...configurations.project, movement: 0.24, connectionDistance: 120, clustering: 0.2 },
   dayle: { ...configurations.project, movement: 0.16, connectionDistance: 96, clustering: 0.1 },
   aethersearch: { ...configurations.project, movement: 0.22, connectionDistance: 128, clustering: 0.18 },
-  "plp-alumni": { ...configurations.project, movement: 0.18, connectionDistance: 116, clustering: 0.22 },
+  "powerhub": { ...configurations.project, movement: 0.18, connectionDistance: 116, clustering: 0.22 },
 };
 
 export function resolveEnvironment(pathname: string) {

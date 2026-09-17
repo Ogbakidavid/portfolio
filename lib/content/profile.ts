@@ -53,7 +53,7 @@ export const stackGroups: StackGroup[] = [
   },
   {
     name: "Cloud / Infrastructure",
-    items: ["AWS", "Docker", "Swagger / OpenAPI"],
+    items: ["AWS", "Docker", "Swagger / OpenAPI", "Google Cloud Platform"],
   },
   {
     name: "AI / ML",
@@ -69,7 +69,7 @@ export const stackGroups: StackGroup[] = [
   },
   {
     name: "Tools",
-    items: ["Git"],
+    items: ["Git", "GitHub", "Postman", "VS Code", "Vercel"],
   },
 ];
 
