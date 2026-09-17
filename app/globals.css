@@ -890,7 +890,8 @@
 
 @media (pointer: fine) {
   html[data-custom-cursor="true"],
-  html[data-custom-cursor="true"] body {
+  html[data-custom-cursor="true"] body,
+  html[data-custom-cursor="true"] * {
     cursor: none;
   }
 }

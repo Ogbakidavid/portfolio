@@ -57,7 +57,7 @@ export const stackGroups: StackGroup[] = [
   },
   {
     name: "AI / ML",
-    items: ["LangChain", "RAG pipelines", "Pinecone", "Anthropic API", "Strands Agents SDK"],
+    items: ["LangChain", "RAG pipelines", "Pinecone", "Anthropic API", "Strands Agents SDK", "Voyage AI embeddings"],
   },
   {
     name: "Frontend",
