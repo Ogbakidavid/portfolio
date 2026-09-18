@@ -474,7 +474,7 @@ html[data-intro-suppressed="true"] .intro-loader {
   font-size: clamp(3.15rem, 6.4vw, 6.25rem);
   font-weight: 520;
   letter-spacing: -0.04em;
-  line-height: 0.91;
+  line-height: 0.98;
 }
 
 .home-view__summary {
