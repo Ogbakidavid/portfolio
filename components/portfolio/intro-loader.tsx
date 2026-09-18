@@ -4,9 +4,10 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { CSSProperties, useEffect, useState } from "react";
 
 const SESSION_KEY = "portfolio-intro-seen";
-const RESOLUTION_START = 980;
-const EXIT_START = 1040;
-const REMOVE_AT = 1280;
+const ENTRY_STAGGER = 0.03;
+const RESOLUTION_START = 900;
+const OPENING_START = 1650;
+const REMOVE_AT = 2100;
 
 type ShapeDefinition = {
   type: "circle" | "triangle";
@@ -52,7 +53,7 @@ export function IntroLoader() {
   const reducedMotion = useReducedMotion();
   const [visible, setVisible] = useState(true);
   const [resolving, setResolving] = useState(false);
-  const [exiting, setExiting] = useState(false);
+  const [opening, setOpening] = useState(false);
 
   useEffect(() => {
     const shell = document.querySelector<HTMLElement>(".portfolio-shell");
@@ -74,9 +75,9 @@ export function IntroLoader() {
       () => setResolving(true),
       reducedMotion ? 0 : RESOLUTION_START,
     );
-    const exitTimer = window.setTimeout(
-      () => setExiting(true),
-      reducedMotion ? 40 : EXIT_START,
+    const openingTimer = window.setTimeout(
+      () => setOpening(true),
+      reducedMotion ? 40 : OPENING_START,
     );
     const removeTimer = window.setTimeout(() => {
       shell?.removeAttribute("inert");
@@ -85,7 +86,7 @@ export function IntroLoader() {
 
     return () => {
       window.clearTimeout(resolutionTimer);
-      window.clearTimeout(exitTimer);
+      window.clearTimeout(openingTimer);
       window.clearTimeout(removeTimer);
       shell?.removeAttribute("inert");
     };
@@ -100,15 +101,16 @@ export function IntroLoader() {
           className="intro-loader"
           aria-hidden="true"
           initial={{ opacity: 1 }}
-          animate={{ opacity: exiting ? 0 : 1 }}
+          animate={{ opacity: opening ? 0 : 1 }}
           exit={{ opacity: 0 }}
-          transition={reducedMotion ? { duration: 0 } : { duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="intro-loader__mark">
             {shapes.map((shape, index) => {
               const resolved = reducedMotion || resolving;
               const targetX = resolved && shape.final ? (shape.finalX ?? shape.x) - shape.x : 0;
               const targetY = resolved && shape.final ? (shape.finalY ?? shape.y) - shape.y : 0;
+              const openingX = shape.type === "circle" ? "-45vw" : "45vw";
               const shapeStyle = {
                 left: shape.x,
                 top: shape.y,
@@ -125,7 +127,7 @@ export function IntroLoader() {
                   animate={
                     resolved
                       ? shape.final
-                        ? { opacity: shape.opacity, scale: 1, x: targetX, y: targetY }
+                        ? { opacity: shape.opacity, scale: opening ? 1.55 : 1.5, x: opening ? openingX : targetX, y: targetY }
                         : { opacity: 0, scale: 0.72, x: -shape.x + 72, y: -shape.y + 44 }
                       : { opacity: shape.opacity, scale: 1, x: 0, y: 0 }
                   }
@@ -133,8 +135,8 @@ export function IntroLoader() {
                     reducedMotion
                       ? { duration: 0 }
                       : resolved
-                        ? { duration: 0.2, ease: [0.65, 0, 0.35, 1] }
-                        : { duration: 0.18, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }
+                        ? { duration: opening ? 0.26 : 0.2, ease: [0.65, 0, 0.35, 1] }
+                        : { duration: 0.18, delay: index * ENTRY_STAGGER, ease: [0.22, 1, 0.36, 1] }
                   }
                 />
               );
