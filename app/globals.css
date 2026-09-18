@@ -119,35 +119,50 @@ html[data-intro-suppressed="true"] .intro-loader {
 
 .intro-loader__mark {
   position: relative;
-  width: 5rem;
+  width: 7rem;
   height: 5rem;
 }
 
-.intro-loader__circle,
-.intro-loader__triangle {
+.intro-loader__shape {
   position: absolute;
   display: block;
-  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  transform-origin: center;
 }
 
-.intro-loader__circle {
-  top: 1rem;
-  left: 0.3rem;
-  width: 3rem;
-  height: 3rem;
+.intro-loader__shape--circle {
+  width: var(--shape-size);
+  height: var(--shape-size);
   border-radius: 50%;
+  background: currentColor;
 }
 
-.intro-loader__triangle {
-  top: 1rem;
-  right: 0.3rem;
+.intro-loader__shape--triangle {
   width: 0;
   height: 0;
-  border-top: 1.6rem solid transparent;
-  border-bottom: 1.6rem solid transparent;
-  border-left: 2.6rem solid var(--color-accent);
-  border-right: 0;
-  transform-origin: 0.4rem 1.6rem;
+  border-top: 0;
+  border-right: calc(var(--shape-size) * 0.52) solid transparent;
+  border-bottom: calc(var(--shape-size) * 0.86) solid currentColor;
+  border-left: calc(var(--shape-size) * 0.52) solid transparent;
+  transform-origin: center;
+}
+
+.intro-loader__shape:nth-child(3n) {
+  color: var(--color-accent);
+}
+
+.intro-loader__shape:nth-child(4n) {
+  color: var(--color-accent);
+}
+
+.intro-loader__shape--final {
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .intro-loader__mark {
+    transform: scale(0.78);
+  }
 }
 
 .skip-link {
