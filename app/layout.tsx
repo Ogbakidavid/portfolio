@@ -14,11 +14,11 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "David Ogbaki — Software Systems & Technical Delivery",
+  title: "Software Systems & Technical Delivery | David Ogbaki",
   description:
     "David Ogbaki builds and connects software systems, APIs, and AI-enabled workflows.",
   openGraph: {
-    title: "David Ogbaki — Software Systems & Technical Delivery",
+    title: "Software Systems & Technical Delivery | David Ogbaki",
     description:
       "David Ogbaki builds and connects software systems, APIs, and AI-enabled workflows.",
     type: "website",
