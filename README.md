@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Ogbaki — Portfolio
 
-## Getting Started
+Personal portfolio for David Ogbaki, focused on software systems, technical delivery, APIs, AI/RAG workflows, and implementation.
 
-First, run the development server:
+## Tech stack
+
+- Next.js 16.3.5 with the App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Motion for interface transitions
+- tsParticles for the ambient particle environment
+- Lenis for smooth scrolling
+- pnpm for package management
+
+## Getting started
+
+Install dependencies and start the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). If port `3000` is already in use, run:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev -- -p 3001
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available scripts
 
-## Learn More
+```bash
+pnpm dev       # Start the development server
+pnpm build     # Create a production build
+pnpm start     # Start the production server
+pnpm lint      # Run ESLint
+```
 
-To learn more about Next.js, take a look at the following resources:
+For a local production check:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm build
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Portfolio routes
 
-## Deploy on Vercel
+- `/` — Home
+- `/work` — Work index
+- `/work/[slug]` — Individual project pages
+- `/experience` — Experience
+- `/stack` — Technology and implementation stack
+- `/about` — About
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contact experience is provided as a slide-out panel from the navigation and home-page conversation trigger.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
+
+```text
+app/                    # App Router routes and global styles
+components/portfolio/   # Portfolio shell, views, navigation, cursor, loader, and contact panel
+lib/content/            # Profile, project, experience, and contact content
+lib/environment/        # Environment configuration
+public/                 # Static assets
+```
+
+Most portfolio copy and project data is maintained in `lib/content/`, keeping content separate from presentation components.
+
+## Interface details
+
+- The portfolio uses a dark, full-viewport visual system with DM Sans and DM Mono.
+- A custom circle-dot cursor is used on pointer devices and remains hidden from assistive technology.
+- Ambient particles are rendered as a persistent background environment.
+- The geometric intro loader appears on the initial visit and is suppressed on later visits in the same session.
+- Reduced-motion preferences are respected for animated interactions.
+
+## Validation before deployment
+
+Run the following checks before publishing:
+
+```bash
+pnpm lint
+pnpm exec tsc --noEmit
+git diff --check
+pnpm build
+```
+
+It is also useful to run the production server locally and manually check each route, the contact panel, keyboard navigation, responsive layouts, and reduced-motion behavior.
+
+## Deploying to Netlify
+
+Connect the repository to Netlify and use:
+
+- **Build command:** `pnpm build`
+- **Publish directory:** `.next`
+- **Node version:** use the version supported by the project and Netlify
+
+Netlify should detect the Next.js application and configure the required runtime automatically. Keep `.env*` files out of version control and add any required production variables through the Netlify project settings.
+
+## Repository hygiene
+
+Local tooling and editor metadata are ignored by Git, including `.agent/`, `.agents/`, `.codex/`, `.impeccable/`, and `.vscode/`. These folders are not required to build or run the portfolio.
