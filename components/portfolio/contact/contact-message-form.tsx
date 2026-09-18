@@ -8,6 +8,12 @@ export function ContactMessageForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = event.currentTarget;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+    setMessage(textarea.value);
+  };
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next: Record<string, string> = {};
@@ -24,8 +30,8 @@ export function ContactMessageForm() {
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="contact-form__field"><label htmlFor="message-name">What&apos;s your name?</label><input id="message-name" name="name" type="text" value={name} onChange={(event) => setName(event.target.value)} aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "message-name-error" : undefined} required />{errors.name && <p className="contact-form__error" id="message-name-error">{errors.name}</p>}</div>
       <div className="contact-form__field"><label htmlFor="message-email">What&apos;s your email?</label><input id="message-email" name="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "message-email-error" : undefined} required />{errors.email && <p className="contact-form__error" id="message-email-error">{errors.email}</p>}</div>
-      <div className="contact-form__field"><label htmlFor="message-body">What do you want to say?</label><textarea id="message-body" name="message" rows={6} value={message} onChange={(event) => setMessage(event.target.value)} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-body-error" : undefined} required />{errors.message && <p className="contact-form__error" id="message-body-error">{errors.message}</p>}</div>
-      <button className="contact-form__submit" type="submit">Send <span aria-hidden="true">↗</span></button>
+      <div className="contact-form__field"><label htmlFor="message-body">What do you want to say?</label><textarea className="contact-form__autosize" id="message-body" name="message" rows={1} value={message} onChange={handleMessageChange} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-body-error" : undefined} required />{errors.message && <p className="contact-form__error" id="message-body-error">{errors.message}</p>}</div>
+      <button className="contact-form__submit" type="submit"><span>Send</span><span aria-hidden="true">→</span></button>
     </form>
   );
 }

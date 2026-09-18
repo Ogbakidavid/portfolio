@@ -14,6 +14,12 @@ export function ContactBusinessForm() {
     setSelectedTypes((current) => current.includes(type) ? current.filter((item) => item !== type) : [...current, type]);
     setErrors((current) => ({ ...current, projectType: "" }));
   };
+  const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = event.currentTarget;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+    setDescription(textarea.value);
+  };
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next: Record<string, string> = {};
@@ -37,8 +43,8 @@ export function ContactBusinessForm() {
         {errors.projectType && <p className="contact-form__error" id="business-project-type-error">{errors.projectType}</p>}
       </fieldset>
       <div className="contact-form__field"><label htmlFor="business-name">What&apos;s your name?</label><input id="business-name" name="name" type="text" value={name} onChange={(event) => setName(event.target.value)} aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "business-name-error" : undefined} required />{errors.name && <p className="contact-form__error" id="business-name-error">{errors.name}</p>}</div>
-      <div className="contact-form__field"><label htmlFor="business-description">Tell me about your project</label><textarea id="business-description" name="description" rows={5} value={description} onChange={(event) => setDescription(event.target.value)} aria-invalid={Boolean(errors.description)} aria-describedby={errors.description ? "business-description-error" : undefined} required />{errors.description && <p className="contact-form__error" id="business-description-error">{errors.description}</p>}</div>
-      <button className="contact-form__submit" type="submit">Send <span aria-hidden="true">↗</span></button>
+      <div className="contact-form__field"><label htmlFor="business-description">Tell me about your project</label><textarea className="contact-form__autosize" id="business-description" name="description" rows={1} value={description} onChange={handleDescriptionChange} aria-invalid={Boolean(errors.description)} aria-describedby={errors.description ? "business-description-error" : undefined} required />{errors.description && <p className="contact-form__error" id="business-description-error">{errors.description}</p>}</div>
+      <button className="contact-form__submit" type="submit"><span>Send</span><span aria-hidden="true">→</span></button>
     </form>
   );
 }
