@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   title: "David Ogbaki — Software Systems & Technical Delivery",
   description:
     "David Ogbaki builds and connects software systems, APIs, and AI-enabled workflows.",
+  openGraph: {
+    title: "David Ogbaki — Software Systems & Technical Delivery",
+    description:
+      "David Ogbaki builds and connects software systems, APIs, and AI-enabled workflows.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

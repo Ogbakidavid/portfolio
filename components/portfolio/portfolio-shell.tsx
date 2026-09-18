@@ -7,6 +7,9 @@ import { Viewport } from "@/components/portfolio/viewport";
 export function PortfolioShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="portfolio-shell">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <PersistentEnvironment />
       <CustomCursor />
       <Navigation />

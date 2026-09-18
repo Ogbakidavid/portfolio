@@ -1,3 +1,3 @@
 export function Viewport({ children }: { children: React.ReactNode }) {
-  return <main className="portfolio-viewport">{children}</main>;
+  return <main id="main-content" className="portfolio-viewport">{children}</main>;
 }
