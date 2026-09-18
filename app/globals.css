@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--color-background);
   --color-foreground: var(--color-text);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-geist-sans);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
+  --font-heading: var(--font-dm-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -77,13 +77,13 @@
     margin: 0;
     background: var(--color-background);
     color: var(--color-text);
-    font-family: var(--font-geist-sans), sans-serif;
+    font-family: var(--font-dm-sans), sans-serif;
   }
 
   html {
     min-width: 320px;
     background: var(--color-background);
-    font-family: var(--font-geist-sans), sans-serif;
+    font-family: var(--font-dm-sans), sans-serif;
   }
 
   a {
@@ -161,7 +161,7 @@
   top: 0.9rem;
   left: 0.9rem;
   color: var(--color-accent);
-  font: 0.58rem var(--font-geist-mono), monospace;
+  font: 0.58rem var(--font-dm-mono), monospace;
   letter-spacing: 0.08em;
   opacity: 0;
   text-transform: uppercase;
@@ -287,7 +287,7 @@
 .route-placeholder__index {
   margin: 0 0 1.2rem;
   color: var(--color-muted);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.77rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -318,7 +318,7 @@
 .home-view__positioning > p {
   margin: 0 0 0.75rem;
   color: var(--color-muted);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.67rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -460,7 +460,7 @@
 .project-row__category,
 .project-navigation__label {
   color: var(--color-muted);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -524,7 +524,7 @@
   padding: 1rem 0;
   align-content: center;
   color: var(--color-muted);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -547,7 +547,7 @@
 }
 
 .project-detail__meta div { display: grid; gap: 0.45rem; }
-.project-detail__meta dt { color: var(--color-muted); font: 0.68rem var(--font-geist-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.project-detail__meta dt { color: var(--color-muted); font: 0.68rem var(--font-dm-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
 .project-detail__meta dd { margin: 0; font-size: 0.9rem; line-height: 1.4; }
 
 .project-links {
@@ -561,7 +561,7 @@
 
 .project-links__label {
   color: var(--color-muted);
-  font: 0.72rem var(--font-geist-mono), monospace;
+  font: 0.72rem var(--font-dm-mono), monospace;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -583,7 +583,7 @@
 .project-links__group {
   margin-right: 0.45rem;
   color: var(--color-muted);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.68rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -600,7 +600,7 @@
 }
 
 .project-detail__body section { display: contents; }
-.project-detail__body h2 { margin: 0 0 3rem; color: var(--color-muted); font: 0.72rem var(--font-geist-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.project-detail__body h2 { margin: 0 0 3rem; color: var(--color-muted); font: 0.72rem var(--font-dm-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
 .project-detail__body p { max-width: 45ch; margin: 0 0 clamp(3rem, 8vh, 6rem); font-size: clamp(1.1rem, 2vw, 1.55rem); letter-spacing: -0.02em; line-height: 1.45; }
 .project-detail__technology { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; max-width: 45rem; margin: 0 0 clamp(3rem, 8vh, 6rem); padding: 0; list-style: none; font-size: 1rem; line-height: 1.5; }
 .project-detail__technology li::before { margin-right: 0.45rem; color: var(--color-accent-secondary); content: "•"; }
@@ -650,7 +650,7 @@
 .profile-label {
   margin: 0 0 1rem;
   color: var(--color-muted);
-  font: 0.68rem var(--font-geist-mono), monospace;
+  font: 0.68rem var(--font-dm-mono), monospace;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -659,17 +659,17 @@
 .experience-entry { display: grid; grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1fr); gap: clamp(2rem, 10vw, 12rem); border-top: 1px solid var(--color-border); padding: 1.4rem 0 clamp(3rem, 8vh, 6rem); }
 .experience-entry:last-child { border-bottom: 1px solid var(--color-border); }
 .experience-entry__topline { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-.experience-entry__number, .experience-entry__period { color: var(--color-muted); font: 0.68rem var(--font-geist-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.experience-entry__number, .experience-entry__period { color: var(--color-muted); font: 0.68rem var(--font-dm-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
 .experience-entry__period { text-align: right; }
 .experience-entry__content h2 { max-width: 18ch; margin: 0; font-size: clamp(2rem, 4vw, 4.5rem); font-weight: 520; letter-spacing: -0.055em; line-height: 0.92; text-transform: uppercase; }
-.experience-entry__company { margin: 0.8rem 0 2rem; color: var(--color-accent); font: 0.72rem var(--font-geist-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.experience-entry__company { margin: 0.8rem 0 2rem; color: var(--color-accent); font: 0.72rem var(--font-dm-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
 .experience-entry__summary { max-width: 43ch; margin: 0 0 3rem; color: var(--color-muted); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.5; }
 .experience-entry__areas { display: flex; flex-wrap: wrap; gap: 0.65rem 1.5rem; max-width: 48rem; margin: 0; padding: 0; list-style: none; font-size: 0.9rem; line-height: 1.5; }
 .experience-entry__areas li::before { margin-right: 0.45rem; color: var(--color-accent-secondary); content: "•"; }
 
 .stack-index { border-top: 1px solid var(--color-border); }
 .stack-group { display: grid; grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1fr); gap: clamp(2rem, 10vw, 12rem); border-bottom: 1px solid var(--color-border); padding: 1.4rem 0 2rem; }
-.stack-group h2 { margin: 0; color: var(--color-muted); font: 0.72rem var(--font-geist-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.stack-group h2 { margin: 0; color: var(--color-muted); font: 0.72rem var(--font-dm-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
 .stack-group ul { display: flex; flex-wrap: wrap; gap: 0.45rem 1.75rem; margin: 0; padding: 0; list-style: none; }
 .stack-group li { font-size: clamp(1.1rem, 2vw, 1.55rem); letter-spacing: -0.025em; line-height: 1.35; transition: color var(--motion-fast) var(--ease-out); }
 .stack-group li::before { margin-right: 0.45rem; color: var(--color-accent-secondary); content: "↳"; font-size: 0.8em; }
@@ -683,7 +683,7 @@
 .about-list { display: grid; gap: 2rem; margin: 0; }
 .about-list h3 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 500; }
 .about-list p, .about-list span { margin: 0; color: var(--color-muted); font-size: 0.85rem; line-height: 1.5; }
-.about-list span { display: block; margin-top: 0.2rem; font-family: var(--font-geist-mono), monospace; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.about-list span { display: block; margin-top: 0.2rem; font-family: var(--font-dm-mono), monospace; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; }
 .about-list--plain { gap: 1rem; padding: 0; list-style: none; color: var(--color-text); font-size: 0.95rem; line-height: 1.45; }
 .about-list--plain li::before { margin-right: 0.45rem; color: var(--color-accent-secondary); content: "•"; }
 
@@ -697,7 +697,7 @@
 .work-entry__number,
 .work-entry__category {
   color: var(--color-muted);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.65rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -740,7 +740,7 @@
   border-top: 1px solid var(--color-border);
   padding-top: 1rem;
   color: var(--color-muted);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.65rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -748,7 +748,7 @@
 
 .home-view__footer .text-link {
   color: var(--color-muted);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0;
   text-transform: none;
@@ -893,14 +893,6 @@
   html[data-custom-cursor="true"] body,
   html[data-custom-cursor="true"] * {
     cursor: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .custom-cursor,
-  .custom-cursor__dot,
-  .custom-cursor__label {
-    transition-duration: 0.01ms;
   }
 }
 

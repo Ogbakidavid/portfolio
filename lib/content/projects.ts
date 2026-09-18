@@ -114,7 +114,7 @@ export const projects: Project[] = [
     shortDescription:
       "A team-built peer-to-peer learning platform created by six PLP alumni during the Full Stack Web Development track.",
     overview:
-      "Power Hub explored a peer-to-peer learning model where alumni could teach and learn from one another. David joined a team of six alumni and contributed to the frontend within a collaborative build-and-ship process.",
+      "Power Hub explored a peer-to-peer learning model where alumni could teach and learn from one another. I joined a team of six alumni and contributed to the frontend within a collaborative build-and-ship process.",
     systemApproach:
       "The work was grounded in MERN-stack fundamentals and the practical constraints of a team project: shared implementation, frontend contribution, and shipping a coherent platform together.",
     technologies: ["MERN-stack fundamentals", "Frontend development"],

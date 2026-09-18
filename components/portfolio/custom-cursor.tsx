@@ -25,7 +25,7 @@ function stateForTarget(target: EventTarget | null): { state: CursorState; label
 
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const pointerRef = useRef({ x: -100, y: -100, visible: false });
+  const pointerRef = useRef({ x: -100, y: -100 });
   const positionRef = useRef({ x: -100, y: -100 });
   const frameRef = useRef<number | undefined>(undefined);
   const reducedMotion = useReducedMotion();
@@ -49,8 +49,10 @@ export function CustomCursor() {
       if (event.pointerType === "touch") return;
       pointerRef.current.x = event.clientX;
       pointerRef.current.y = event.clientY;
-      pointerRef.current.visible = true;
       cursor.dataset.visible = "true";
+      if (reducedMotion) {
+        cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+      }
       updateState(event.target);
     };
 
@@ -59,7 +61,6 @@ export function CustomCursor() {
     };
 
     const hide = () => {
-      pointerRef.current.visible = false;
       cursor.dataset.visible = "false";
       cursor.dataset.state = "default";
     };
@@ -82,7 +83,7 @@ export function CustomCursor() {
     window.addEventListener("pointerover", onPointerOver, { passive: true });
     window.addEventListener("blur", hide);
     document.documentElement.addEventListener("mouseleave", hide);
-    frameRef.current = requestAnimationFrame(animate);
+    if (!reducedMotion) frameRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("pointermove", onPointerMove);
