@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/content/projects";
 import { ProjectRow } from "@/components/portfolio/work/project-row";
 
@@ -14,7 +15,7 @@ export function WorkIndex() {
         {projects.map((project) => <ProjectRow key={project.slug} project={project} />)}
       </ol>
       <Link className="text-link work-index__back" href="/">
-        Return home <span aria-hidden="true">↗</span>
+        Return home <ArrowUpRight className="portfolio-arrow" aria-hidden="true" />
       </Link>
     </section>
   );

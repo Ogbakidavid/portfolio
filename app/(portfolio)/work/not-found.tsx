@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function WorkNotFound() {
   return (
@@ -6,7 +7,7 @@ export default function WorkNotFound() {
       <p className="route-placeholder__index">WORK / NOT FOUND</p>
       <h1 id="work-not-found-title">No such project.</h1>
       <p>The requested project is not part of the current work index.</p>
-      <Link className="text-link" href="/work">Back to work <span aria-hidden="true">↗</span></Link>
+      <Link className="text-link" href="/work">Back to work <ArrowUpRight className="portfolio-arrow" aria-hidden="true" /></Link>
     </section>
   );
 }

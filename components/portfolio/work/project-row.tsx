@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/content/projects";
 
 export function ProjectRow({ project }: { project: Project }) {
@@ -8,7 +9,7 @@ export function ProjectRow({ project }: { project: Project }) {
         <span className="project-row__number">{project.number}</span>
         <span className="project-row__title">{project.title}</span>
         <span className="project-row__category">{project.category}</span>
-        <span className="project-row__arrow" aria-hidden="true">↗</span>
+        <ArrowUpRight className="project-row__arrow portfolio-arrow" aria-hidden="true" />
       </Link>
     </li>
   );

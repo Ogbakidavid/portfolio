@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/portfolio/home/reveal";
 import { ContactTrigger } from "@/components/portfolio/contact/contact-trigger";
 
@@ -35,7 +36,7 @@ export function HomeView() {
       <Reveal className="home-view__work" delay={0.12}>
         <div className="home-view__work-heading">
           <span>Selected work</span>
-          <span aria-hidden="true">↘</span>
+          <ArrowDownRight className="portfolio-arrow" aria-hidden="true" />
         </div>
         <ol className="work-entry" aria-label="Selected projects">
           {projects.map((project) => (
@@ -46,13 +47,13 @@ export function HomeView() {
                 </span>
                 <span className="work-entry__title">{project.title}</span>
                 <span className="work-entry__category">{project.category}</span>
-                <span className="work-entry__arrow" aria-hidden="true">↗</span>
+                <ArrowUpRight className="work-entry__arrow portfolio-arrow" aria-hidden="true" />
               </Link>
             </li>
           ))}
         </ol>
         <Link className="text-link" href="/work">
-          Open work index <span aria-hidden="true">↗</span>
+          Open work index <ArrowUpRight className="portfolio-arrow" aria-hidden="true" />
         </Link>
       </Reveal>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/content/projects";
 
 function ProjectNavigation({ previous, next }: { previous?: Project; next?: Project }) {
@@ -10,7 +11,7 @@ function ProjectNavigation({ previous, next }: { previous?: Project; next?: Proj
           <Link href={`/work/${previous.slug}`}>{previous.number} / {previous.title}</Link>
         ) : <span className="project-navigation__disabled">—</span>}
       </div>
-      <Link className="text-link" href="/work">Back to work <span aria-hidden="true">↗</span></Link>
+      <Link className="text-link" href="/work">Back to work <ArrowUpRight className="portfolio-arrow" aria-hidden="true" /></Link>
       <div className="project-navigation__next">
         <span className="project-navigation__label">Next</span>
         {next ? (
@@ -72,7 +73,7 @@ export function ProjectDetail({ project, previous, next }: { project: Project; p
                 rel="noreferrer"
                 aria-label={`${group} ${label} for ${project.title} (opens in a new tab)`}
               >
-                {group === "GitHub" && <span className="project-links__group">GitHub</span>}{label} <span aria-hidden="true">↗</span>
+                {group === "GitHub" && <span className="project-links__group">GitHub</span>}{label} <ArrowUpRight className="portfolio-arrow" aria-hidden="true" />
               </a>
             ))}
           </div>

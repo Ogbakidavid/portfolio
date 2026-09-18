@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { useContact } from "@/components/portfolio/contact/contact-context";
 
 const links = [
@@ -44,7 +45,7 @@ export function Navigation() {
           ))}
           <li>
             <button ref={contactTriggerRef} className="portfolio-nav__link portfolio-nav__link--contact" type="button" onClick={(event) => openContact(event.currentTarget)}>
-              Contact <span aria-hidden="true">↗</span>
+              Contact <ArrowUpRight className="portfolio-arrow" aria-hidden="true" />
             </button>
           </li>
         </ul>

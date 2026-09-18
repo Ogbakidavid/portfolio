@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { certifications, education } from "@/lib/content/profile";
 
 export function AboutView() {
@@ -17,7 +18,7 @@ export function AboutView() {
         <section aria-labelledby="about-experience-title">
           <h2 id="about-experience-title" className="profile-label">Experience</h2>
           <p>My work has progressed from frontend implementation into end-to-end enterprise implementation, solution design, automation, and technical delivery.</p>
-          <Link className="text-link" href="/experience">View experience <span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href="/experience">View experience <ArrowUpRight className="portfolio-arrow" aria-hidden="true" /></Link>
         </section>
       </div>
       <div className="about-page__supporting">
