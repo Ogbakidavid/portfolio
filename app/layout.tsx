@@ -34,8 +34,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${dmSans.variable} ${dmMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try { if (sessionStorage.getItem("portfolio-intro-seen") === "true") document.documentElement.dataset.introSuppressed = "true"; } catch {}`,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
