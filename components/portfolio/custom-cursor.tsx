@@ -72,8 +72,8 @@ export function CustomCursor() {
         position.x = target.x;
         position.y = target.y;
       } else {
-        position.x += (target.x - position.x) * 0.28;
-        position.y += (target.y - position.y) * 0.28;
+        position.x += (target.x - position.x) * 0.62;
+        position.y += (target.y - position.y) * 0.62;
       }
       cursor.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
       frameRef.current = requestAnimationFrame(animate);

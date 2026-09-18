@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRef } from "react";
+import { useContact } from "@/components/portfolio/contact/contact-context";
 
 const links = [
   { href: "/work", label: "Work" },
@@ -16,6 +18,8 @@ function isActive(pathname: string, href: string) {
 
 export function Navigation() {
   const pathname = usePathname();
+  const { openContact } = useContact();
+  const contactTriggerRef = useRef<HTMLButtonElement>(null);
 
   return (
     <header className="portfolio-nav">
@@ -39,14 +43,9 @@ export function Navigation() {
             </li>
           ))}
           <li>
-            <Link
-              className="portfolio-nav__link portfolio-nav__link--contact"
-              data-active={isActive(pathname, "/contact")}
-              href="/contact"
-              aria-current={isActive(pathname, "/contact") ? "page" : undefined}
-            >
+            <button ref={contactTriggerRef} className="portfolio-nav__link portfolio-nav__link--contact" type="button" onClick={(event) => openContact(event.currentTarget)}>
               Contact <span aria-hidden="true">↗</span>
-            </Link>
+            </button>
           </li>
         </ul>
       </nav>

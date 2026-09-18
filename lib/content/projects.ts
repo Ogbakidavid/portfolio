@@ -77,6 +77,7 @@ export const projects: Project[] = [
       "The startup did not reach commercial launch due to business-model constraints; technical ownership of the backend was retained.",
     github: {
       backend: "https://github.com/Ogbakidavid/dayle-backend.git",
+      frontend: "https://github.com/Ogbakidavid/dayle-frontend.git",
     },
   },
   {

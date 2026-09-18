@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Reveal } from "@/components/portfolio/home/reveal";
+import { useContact } from "@/components/portfolio/contact/contact-context";
 
 const projects = [
   { slug: "billam", title: "BillAm", category: "AI systems / operations" },
@@ -9,6 +12,8 @@ const projects = [
 ];
 
 export function HomeView() {
+  const { openContact } = useContact();
+
   return (
     <div className="home-view">
       <Reveal className="home-view__statement" delay={0.04}>
@@ -57,9 +62,9 @@ export function HomeView() {
 
       <Reveal className="home-view__footer" delay={0.2}>
         <span>Based in Nigeria</span>
-        <Link className="text-link" href="/contact">
+        <button className="text-link" type="button" data-cursor="link" onClick={(event) => openContact(event.currentTarget)}>
           Start a conversation <span aria-hidden="true">↗</span>
-        </Link>
+        </button>
       </Reveal>
     </div>
   );
