@@ -93,6 +93,12 @@ export function ProjectDetail({ project, previous, next }: { project: Project; p
           <h2 id="project-contribution-title">Documented contribution</h2>
           <p>{project.contribution}</p>
         </section>}
+        {project.keyContributions && <section aria-labelledby="project-key-contributions-title">
+          <h2 id="project-key-contributions-title">Key contributions</h2>
+          <ul className="project-detail__contributions">
+            {project.keyContributions.map((contribution) => <li key={contribution}>{contribution}</li>)}
+          </ul>
+        </section>}
         <section aria-labelledby="project-technology-title">
           <h2 id="project-technology-title">Technology</h2>
           <ul className="project-detail__technology">

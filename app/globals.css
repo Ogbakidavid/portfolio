@@ -781,6 +781,9 @@ html[data-intro-suppressed="true"] .intro-loader {
 .project-detail__body p { max-width: 45ch; margin: 0 0 clamp(3rem, 8vh, 6rem); font-size: clamp(1.1rem, 2vw, 1.55rem); letter-spacing: -0.02em; line-height: 1.45; }
 .project-detail__technology { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; max-width: 45rem; margin: 0 0 clamp(3rem, 8vh, 6rem); padding: 0; list-style: none; font-size: 1rem; line-height: 1.5; }
 .project-detail__technology li::before { margin-right: 0.45rem; color: var(--color-accent-secondary); content: "•"; }
+.project-detail__contributions { display: grid; gap: 0.6rem; max-width: 45rem; margin: 0 0 clamp(3rem, 8vh, 6rem); padding: 0; list-style: none; font-size: 1rem; line-height: 1.5; }
+.project-detail__contributions li { position: relative; padding-left: 1rem; }
+.project-detail__contributions li::before { position: absolute; top: 0; left: 0; color: var(--color-accent-secondary); content: "•"; }
 
 .project-navigation { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: end; border-top: 1px solid var(--color-border); padding-top: 1rem; }
 .project-navigation > div { display: grid; gap: 0.5rem; }
